@@ -98,7 +98,6 @@ const stackBrandIconMap: Record<string, string> = {
   Python: "https://cdn.simpleicons.org/python",
   Java: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
   Postman: "https://cdn.simpleicons.org/postman",
-  SoapUI: "https://images.icon-icons.com/1381/SVG/soapui_93772.svg",
   JMeter: "https://cdn.simpleicons.org/apachejmeter",
   LoadRunner: "https://upload.wikimedia.org/wikipedia/en/thumb/6/61/HPE_LoadRunner_logo.png/250px-HPE_LoadRunner_logo.png",
   BrowserStack: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/browserstack/browserstack-original.svg",
@@ -124,6 +123,36 @@ function StackChipIcon({ item }: { item: string }) {
       <strong className="stack-sql-icon" aria-hidden="true">
         SQL
       </strong>
+    );
+  }
+
+  if (item === "SoapUI") {
+    return (
+      <svg
+        className="stack-soapui-icon"
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.8 2.8h-3.6l-.6 2.15c-.48.16-.94.35-1.38.58L6.27 4.44 3.73 6.98l1.08 1.95c-.23.44-.43.9-.58 1.38L2.08 10.9v3.6l2.15.6c.16.48.35.94.58 1.38l-1.08 1.95 2.54 2.54 1.95-1.08c.44.23.9.43 1.38.58l.6 2.15h3.6l.6-2.15c.48-.16.94-.35 1.38-.58l1.95 1.08 2.54-2.54-1.08-1.95c.23-.44.43-.9.58-1.38l2.15-.6v-3.6l-2.15-.6a8.16 8.16 0 0 0-.58-1.38l1.08-1.95-2.54-2.54-1.95 1.08c-.44-.23-.9-.43-1.38-.58L13.8 2.8Z"
+          fill="#79C348"
+        />
+        <path
+          d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4Z"
+          fill="#F4F6F3"
+        />
+        <path
+          d="M14.8 8.85c-2.3-.35-4.28.58-4.98 2.1-.52 1.14.08 2.1 1.76 2.33l1.22.18c.56.08.75.3.58.66-.28.56-1.32.88-2.7.56l-.76 1.55c1.98.55 4.18-.1 5.04-1.66.64-1.17.12-2.2-1.72-2.48l-1.26-.2c-.52-.08-.68-.3-.52-.62.25-.52 1.34-.88 2.62-.55l.72-1.87Z"
+          fill="#61AF3B"
+        />
+        <path
+          d="M6.15 14.2c1.7 3.7 6.18 5.26 9.88 3.36 1.42-.73 2.5-1.85 3.15-3.16-.52 2.94-2.9 5.36-6.04 5.8-3.56.5-6.8-1.78-7.7-5.22l.71-.78Z"
+          fill="#D8D8D8"
+          opacity="0.9"
+        />
+      </svg>
     );
   }
 
