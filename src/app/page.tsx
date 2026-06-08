@@ -186,7 +186,7 @@ export default function Home() {
     items.forEach((item) => observer.observe(item));
 
     return () => observer.disconnect();
-  }, []);
+  }, [locale]);
 
   return (
     <main>
@@ -296,7 +296,7 @@ export default function Home() {
           {t.experience.map((item, index) => (
             <article
               className={`timeline-item reveal-row ${index % 2 === 0 ? "reveal-left" : "reveal-right"}`}
-              key={`${item.company}-${item.period}`}
+              key={`experience-${index}`}
               data-reveal
               style={{ ["--reveal-delay" as never]: `${index * 120}ms` }}
             >
@@ -328,7 +328,7 @@ export default function Home() {
           {t.cases.map((item, index) => (
             <article
               className={`case-card reveal-card ${index % 2 === 0 ? "reveal-up" : "reveal-right"}`}
-              key={item.title}
+              key={`case-${index}`}
               data-reveal
               style={{ ["--reveal-delay" as never]: `${index * 110}ms` }}
             >
@@ -353,7 +353,7 @@ export default function Home() {
             return (
               <article
                 className={`stack-card reveal-card ${index % 2 === 0 ? "reveal-up" : "reveal-right"}`}
-                key={group.title}
+                key={`stack-${index}`}
                 data-reveal
                 style={{ ["--reveal-delay" as never]: `${index * 120}ms` }}
               >
