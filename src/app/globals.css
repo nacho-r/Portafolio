@@ -563,9 +563,34 @@ p {
   white-space: nowrap;
 }
 
-.chips svg {
+.chips svg,
+.stack-brand-icon {
   flex: 0 0 auto;
+  width: 15px;
+  height: 15px;
+}
+
+.chips svg {
   color: var(--accent-2);
+}
+
+.stack-brand-icon {
+  display: block;
+  object-fit: contain;
+}
+
+.stack-sql-icon {
+  display: inline-grid;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 15px;
+  place-items: center;
+  border-radius: 3px;
+  background: #2f7fc1;
+  color: #ffffff;
+  font-size: 0.42rem;
+  font-weight: 900;
+  line-height: 1;
 }
 
 .education {

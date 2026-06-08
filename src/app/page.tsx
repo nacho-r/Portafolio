@@ -89,6 +89,59 @@ const stackIconMap: Record<string, typeof Terminal> = {
   "QA Documentation": FileText,
 };
 
+const stackBrandIconMap: Record<string, string> = {
+  Selenium: "https://cdn.simpleicons.org/selenium",
+  Appium: "https://cdn.simpleicons.org/appium",
+  Cucumber: "https://cdn.simpleicons.org/cucumber",
+  Playwright: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg",
+  Cypress: "https://cdn.simpleicons.org/cypress/FFFFFF",
+  Python: "https://cdn.simpleicons.org/python",
+  Java: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  Postman: "https://cdn.simpleicons.org/postman",
+  SoapUI: "https://images.icon-icons.com/1381/SVG/soapui_93772.svg",
+  JMeter: "https://cdn.simpleicons.org/apachejmeter",
+  LoadRunner: "https://upload.wikimedia.org/wikipedia/en/thumb/6/61/HPE_LoadRunner_logo.png/250px-HPE_LoadRunner_logo.png",
+  BrowserStack: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/browserstack/browserstack-original.svg",
+  React: "https://cdn.simpleicons.org/react",
+  "Next.js": "https://cdn.simpleicons.org/nextdotjs/FFFFFF",
+  Flutter: "https://cdn.simpleicons.org/flutter",
+  Django: "https://cdn.simpleicons.org/django",
+  HTML5: "https://cdn.simpleicons.org/html5",
+  CSS3: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+  Prisma: "https://cdn.simpleicons.org/prisma/FFFFFF",
+  PostgreSQL: "https://cdn.simpleicons.org/postgresql",
+  Salesforce: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/salesforce/salesforce-original.svg",
+  Git: "https://cdn.simpleicons.org/git",
+};
+
+function StackChipIcon({ item }: { item: string }) {
+  const [failed, setFailed] = useState(false);
+  const brandIcon = stackBrandIconMap[item];
+  const FallbackIcon = stackIconMap[item] ?? Code;
+
+  if (item === "SQL") {
+    return (
+      <strong className="stack-sql-icon" aria-hidden="true">
+        SQL
+      </strong>
+    );
+  }
+
+  if (brandIcon && !failed) {
+    return (
+      <img
+        src={brandIcon}
+        alt=""
+        aria-hidden="true"
+        className="stack-brand-icon"
+        onError={() => setFailed(true)}
+      />
+    );
+  }
+
+  return <FallbackIcon size={15} strokeWidth={2.2} />;
+}
+
 function GitHubLogo({ size = 20 }: { size?: number }) {
   return (
     <svg
@@ -360,15 +413,12 @@ export default function Home() {
                 <Icon size={24} />
                 <h3>{group.title}</h3>
                 <div className="chips">
-                  {group.items.map((item) => {
-                    const StackIcon = stackIconMap[item] ?? Code;
-                    return (
-                      <span key={item}>
-                        <StackIcon size={15} strokeWidth={2.2} />
-                        {item}
-                      </span>
-                    );
-                  })}
+                  {group.items.map((item) => (
+                    <span key={item}>
+                      <StackChipIcon item={item} />
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </article>
             );
