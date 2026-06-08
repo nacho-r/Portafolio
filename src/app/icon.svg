@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#07090d"/>
-  <rect x="10" y="10" width="44" height="44" rx="12" stroke="#28e0a6" stroke-width="2"/>
-  <path d="M20 42V22h6.5l5.5 11 5.5-11H44v20h-5.2V31.2l-4.1 8.1h-1.4l-4.1-8.1V42H20Z" fill="#eef3f8"/>
+  <rect width="64" height="64" rx="14" fill="#07101b"/>
+  <rect x="10" y="10" width="44" height="44" rx="12" stroke="#6fa8dc" stroke-width="2"/>
+  <text x="32" y="39" fill="#f8fbff" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="800" text-anchor="middle">IR</text>
 </svg>

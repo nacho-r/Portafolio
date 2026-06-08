@@ -14,9 +14,9 @@ export const content = {
       availability: "Disponible para roles QA Automation, SDET y Developer con foco en calidad.",
     },
     stats: [
-      { value: "+4", label: "años de experiencia" },
-      { value: "QA + Dev", label: "perfil técnico híbrido" },
-      { value: "Web / Mobile / API", label: "cobertura de testing" },
+      { value: "+4", label: "Años de experiencia" },
+      { value: "QA + Dev", label: "Perfil técnico híbrido" },
+      { value: "Web / Mobile / API", label: "Cobertura de testing" },
     ],
     about: {
       title: "Perfil Profesional",
@@ -157,9 +157,9 @@ export const content = {
       availability: "Available for QA Automation, SDET, and quality-focused developer roles.",
     },
     stats: [
-      { value: "+4", label: "years of experience" },
-      { value: "QA + Dev", label: "hybrid technical profile" },
-      { value: "Web / Mobile / API", label: "testing coverage" },
+      { value: "+4", label: "Years of experience" },
+      { value: "QA + Dev", label: "Hybrid technical profile" },
+      { value: "Web / Mobile / API", label: "Testing coverage" },
     ],
     about: {
       title: "Professional Profile",
