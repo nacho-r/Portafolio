@@ -21,7 +21,7 @@ export const content = {
     about: {
       title: "Perfil Profesional",
       body:
-        "QA Automation Engineer y Developer con experiencia en automatización de pruebas, testing API, mobile testing, performance testing y desarrollo web. He trabajado en proyectos para sectores financiero, retail y software, participando en el diseño, ejecución y certificación de pruebas, gestión de defectos, documentación QA y automatización de flujos críticos.",
+        "QA Automation Engineer y Developer con experiencia en automatización de pruebas, testing API, mobile testing, performance testing y desarrollo web. He trabajado en proyectos para sectores financiero, retail y software, participando en el diseño, ejecución y certificación de pruebas, gestión de defectos, documentación QA y automatización de flujos críticos. Me interesa construir soluciones que no solo funcionen, sino que también sean mantenibles, trazables y fáciles de validar en entornos exigentes.",
     },
     experienceTitle: "Experiencia",
     experience: [
@@ -66,7 +66,7 @@ export const content = {
       },
     ],
     casesTitle: "Experiencia Aplicada",
-    casesSubtitle: "Casos profesionales construidos desde experiencia real, sin exponer información confidencial.",
+    casesSubtitle: "",
     cases: [
       {
         title: "Automation Platform for Crypto Operations",
@@ -134,7 +134,7 @@ export const content = {
       title: "Educación y Certificaciones",
       degree: "Ingeniería Civil Informática, Universidad Autónoma de Chile",
       period: "2019 - 2024",
-      certs: "React, Responsive Web Design, JQuery, Java, HTML",
+      certs: "React, Responsive Web Design, jQuery, Java, HTML",
     },
     contact: {
       title: "Construyamos software más confiable.",
@@ -164,7 +164,7 @@ export const content = {
     about: {
       title: "Professional Profile",
       body:
-        "QA Automation Engineer and Developer with experience in test automation, API testing, mobile testing, performance testing, and web development. I have worked on financial, retail, and software projects, contributing to test design, execution, certification, defect management, QA documentation, and automation of critical flows.",
+        "QA Automation Engineer and Developer with experience in test automation, API testing, mobile testing, performance testing, and web development. I have worked on financial, retail, and software projects, contributing to test design, execution, certification, defect management, QA documentation, and automation of critical flows. I care about building software that is not only correct, but also maintainable, traceable, and easy to validate in demanding environments.",
     },
     experienceTitle: "Experience",
     experience: [
@@ -209,7 +209,7 @@ export const content = {
       },
     ],
     casesTitle: "Applied Experience",
-    casesSubtitle: "Professional cases built from real experience without exposing confidential details.",
+    casesSubtitle: "",
     cases: [
       {
         title: "Automation Platform for Crypto Operations",
@@ -277,7 +277,7 @@ export const content = {
       title: "Education and Certifications",
       degree: "Computer Science Engineering, Universidad Autónoma de Chile",
       period: "2019 - 2024",
-      certs: "React, Responsive Web Design, JQuery, Java, HTML",
+      certs: "React, Responsive Web Design, jQuery, Java, HTML",
     },
     contact: {
       title: "Let's build more reliable software.",

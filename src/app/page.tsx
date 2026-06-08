@@ -3,16 +3,44 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   ArrowUpRight,
+  Atom,
   BadgeCheck,
+  Bot,
+  Braces,
   BriefcaseBusiness,
+  Brush,
+  Bug,
+  Cloud,
+  Code,
+  CodeXml,
+  Coffee,
   Database,
+  DatabaseSearch,
+  DatabaseZap,
   FileDown,
+  FileText,
+  FlaskConical,
+  Gauge,
+  GitBranch,
   Languages,
+  Layers,
   Mail,
   MapPin,
+  MonitorSmartphone,
+  MousePointerClick,
+  PlugZap,
+  Puzzle,
+  Repeat,
+  Route,
+  Send,
+  Server,
   ShieldCheck,
   Sparkles,
+  Smartphone,
+  SquareKanban,
   Terminal,
+  UsersRound,
+  Zap,
 } from "lucide-react";
 import { content, type Locale } from "@/lib/content";
 
@@ -22,6 +50,43 @@ const profileLinks = {
   linkedin: "https://www.linkedin.com/in/isaac-i-romero-r",
   github: "https://github.com/nacho-r",
   cv: "/Isaac_CV.pdf",
+};
+
+const stackIconMap: Record<string, typeof Terminal> = {
+  Selenium: Bot,
+  Appium: Smartphone,
+  Cucumber: Puzzle,
+  Playwright: MonitorSmartphone,
+  Cypress: MousePointerClick,
+  Python: Braces,
+  Java: Coffee,
+  Postman: Send,
+  SoapUI: PlugZap,
+  "API REST": Route,
+  "REST API": Route,
+  JMeter: Gauge,
+  LoadRunner: Zap,
+  BrowserStack: Layers,
+  "Regresión": Repeat,
+  Regression: Repeat,
+  "Defect Management": Bug,
+  React: Atom,
+  "Next.js": Code,
+  Flutter: Smartphone,
+  Django: Server,
+  HTML5: CodeXml,
+  CSS3: Brush,
+  Prisma: DatabaseZap,
+  PostgreSQL: Database,
+  SQL: DatabaseSearch,
+  "Virtualización de datos": DatabaseZap,
+  "Data virtualization": DatabaseZap,
+  Salesforce: Cloud,
+  Git: GitBranch,
+  Scrum: UsersRound,
+  Kanban: SquareKanban,
+  "Documentación QA": FileText,
+  "QA Documentation": FileText,
 };
 
 function GitHubLogo({ size = 20 }: { size?: number }) {
@@ -100,6 +165,28 @@ export default function Home() {
 
     return () => clearTimeout(timeout);
   }, [t.hero.availability]);
+
+  useEffect(() => {
+    const items = document.querySelectorAll<HTMLElement>("[data-reveal]");
+    if (!items.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          } else {
+            entry.target.classList.remove("is-visible");
+          }
+        });
+      },
+      { threshold: 0.18, rootMargin: "0px 0px -8% 0px" },
+    );
+
+    items.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main>
@@ -182,7 +269,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="stats-band" aria-label="Highlights">
+      <section className="stats-band reveal-left" aria-label="Highlights" data-reveal>
         {t.stats.map((stat) => (
           <div key={stat.label}>
             <strong>{stat.value}</strong>
@@ -191,7 +278,7 @@ export default function Home() {
         ))}
       </section>
 
-      <section id="profile" className="section section-grid">
+      <section id="profile" className="section section-grid reveal-right" data-reveal>
         <div>
           <p className="section-label">01</p>
           <h2>{t.about.title}</h2>
@@ -199,15 +286,20 @@ export default function Home() {
         <p className="large-text">{t.about.body}</p>
       </section>
 
-      <section id="experience" className="section">
+      <section id="experience" className="section reveal-left" data-reveal>
         <div className="section-heading">
           <p className="section-label">02</p>
           <h2>{t.experienceTitle}</h2>
         </div>
 
         <div className="timeline">
-          {t.experience.map((item) => (
-            <article className="timeline-item" key={`${item.company}-${item.period}`}>
+          {t.experience.map((item, index) => (
+            <article
+              className={`timeline-item reveal-row ${index % 2 === 0 ? "reveal-left" : "reveal-right"}`}
+              key={`${item.company}-${item.period}`}
+              data-reveal
+              style={{ ["--reveal-delay" as never]: `${index * 120}ms` }}
+            >
               <div className="timeline-meta">
                 <span>{item.period}</span>
               </div>
@@ -225,16 +317,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="cases" className="section section-accent">
+      <section id="cases" className="section section-accent reveal-right" data-reveal>
         <div className="section-heading">
           <p className="section-label">03</p>
           <h2>{t.casesTitle}</h2>
-          <p>{t.casesSubtitle}</p>
+          {t.casesSubtitle ? <p>{t.casesSubtitle}</p> : null}
         </div>
 
         <div className="case-grid">
-          {t.cases.map((item) => (
-            <article className="case-card" key={item.title}>
+          {t.cases.map((item, index) => (
+            <article
+              className={`case-card reveal-card ${index % 2 === 0 ? "reveal-up" : "reveal-right"}`}
+              key={item.title}
+              data-reveal
+              style={{ ["--reveal-delay" as never]: `${index * 110}ms` }}
+            >
               <span>{item.tag}</span>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
@@ -244,7 +341,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="stack" className="section">
+      <section id="stack" className="section reveal-left" data-reveal>
         <div className="section-heading">
           <p className="section-label">04</p>
           <h2>{t.stackTitle}</h2>
@@ -254,13 +351,24 @@ export default function Home() {
           {t.stackGroups.map((group, index) => {
             const Icon = [Terminal, ShieldCheck, Sparkles, Database][index];
             return (
-              <article className="stack-card" key={group.title}>
+              <article
+                className={`stack-card reveal-card ${index % 2 === 0 ? "reveal-up" : "reveal-right"}`}
+                key={group.title}
+                data-reveal
+                style={{ ["--reveal-delay" as never]: `${index * 120}ms` }}
+              >
                 <Icon size={24} />
                 <h3>{group.title}</h3>
                 <div className="chips">
-                  {group.items.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
+                  {group.items.map((item) => {
+                    const StackIcon = stackIconMap[item] ?? Code;
+                    return (
+                      <span key={item}>
+                        <StackIcon size={15} strokeWidth={2.2} />
+                        {item}
+                      </span>
+                    );
+                  })}
                 </div>
               </article>
             );
@@ -280,7 +388,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="contact section-pad">
+      <section id="contact" className="contact section-pad reveal-right" data-reveal>
         <div>
           <p className="section-label">06</p>
           <h2>{t.contact.title}</h2>
